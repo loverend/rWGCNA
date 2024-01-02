@@ -25,8 +25,8 @@ gene <- opt$g
 path_to_layout <- opt$l
 
 # Source Auxillary Functions
-setwd("/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE")
-my_aux_functions <- c("RFunctions/ModuleSelection")           
+setwd("/well/immune-rep/shared/CODE/rWGCNA")
+my_aux_functions <- c(".")           
 source_files <- list.files(my_aux_functions, "*.R$", full.names=TRUE)  # locate all .R files
 for (f in source_files) {
     source(f)

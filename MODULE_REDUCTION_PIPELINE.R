@@ -46,16 +46,12 @@ cluster_immunerep <- function(type_use, subsampled_deptha,subsampled_depthb=NA, 
 	## Functions for Script 
 	print("Running Repertoire WGCNA Reduction Pipeline. \n Author: Lauren Overend. \n Contact: Lauren.overend@oriel.ox.ac.uk")
 	print("Sourcing Dependent Functions...")
-	source('/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE/RFunctions/ModuleSelection/ModuleImputationMethods.R')
-	source('/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE/RFunctions/ModuleSelection/getcorrelationFast.R')
-	source('/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE/RFunctions/ModuleSelection/multiplot.R')
-	source('/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE/RFunctions/ModuleSelection/Get_Subsample_Depth.R')
-	source('/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE/RFunctions/ModuleSelection/Cluster_Repertoire.R')
-	source('/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE/RFunctions/ModuleSelection/Eigengenes.R')
-	source('/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE/RFunctions/ModuleSelection/PlotModules.R')
-	source('/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE/RFunctions/ModuleSelection/Other.R')
-	source('/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE/RFunctions/ModuleSelection/ModuleImputationMethodsRow.R')
-	source('/well/immune-rep/shared/CODE/BCR_TCR_PROCESSING_PIPELINE/RFunctions/ModuleSelection/CorrelationAverage.R')
+	setwd("/well/immune-rep/shared/CODE/rWGCNA")
+	my_aux_functions <- c(".")           
+	source_files <- list.files(my_aux_functions, "*.R$", full.names=TRUE)  # locate all .R files
+	for (f in source_files) {
+		source(f)
+	}
 	
 	## Assign Variable Names:
 	## Variable Names!!!
